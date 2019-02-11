@@ -4,18 +4,12 @@ import {
   UserState,
   ConversationState,
   TurnContext,
-  StatePropertyAccessor,
 } from 'botbuilder'
-import {
-  ChoicePrompt,
-  DialogSet,
-  NumberPrompt,
-  TextPrompt,
-  WaterfallDialog,
-  WaterfallStepContext,
-  Prompt,
-  DialogTurnResult,
-} from 'botbuilder-dialogs'
+import { DialogSet } from 'botbuilder-dialogs'
+import { Dialogs } from './dialogs'
+// TODO fix eslint bug
+// eslint-disable-next-line import/named
+import { UserAccessor } from './types'
 
 /**
  * keys of permanent properties which are kept as long as the conversation goes
@@ -26,150 +20,18 @@ const Properties = {
 }
 
 /**
- * an accessor is an object with the methods get() and set() for storing data
+ * creates a bot
  */
-type Accessor<T> = StatePropertyAccessor<T>
-
-/**
- * A step is something that can interact with the user, e.g. prompt the user for his name
- */
-type Step<T extends object> = WaterfallStepContext<T>
-
-interface User {
-  readonly age?: number
-  readonly name?: string
-}
-type UserAccessor = Accessor<User>
-type UserStep = Step<User>
-type UserDialog = (
-  userAccessor: UserAccessor
-) => (Prompt<any> | WaterfallDialog)[]
-interface UserDialogs {
-  [key: string]: UserDialog
-}
-type UserMiniDialog = (step: UserStep) => Promise<DialogTurnResult<any>>
-interface UserMiniDialogs {
-  [key: string]: UserMiniDialog
-}
-
-/**
- * dialogs which can be used to
- */
-const Dialogs: UserDialogs = {
-  WhoAreYou(userAccessor) {
-    const miniDialogs: UserMiniDialogs = {
-      /**
-       * prompts the user for their name
-       */
-      async name(step) {
-        return step.prompt(this.name.name, `What's is your name?`)
-      },
-      /**
-       * asks the user if he/she wants to give his/her age
-       */
-      async confirmAgePrompt(step) {
-        const user = await userAccessor.get(step.context, {})
-        await userAccessor.set(step.context, { ...user, name: step.result })
-        return step.prompt(this.confirmAgePrompt.name, {
-          prompt: 'Do you want to give your age?',
-          choices: ['yes', 'no'],
-        })
-      },
-      /**
-       * asks a user for his/her age, only if he/she wants to give his/her age
-       */
-      async promptForAge(step) {
-        if (!step.result || step.result.value === 'no') {
-          return step.next(-1)
-        }
-        return step.prompt(this.promptForAge.name, {
-          prompt: `What is your age?`,
-          retryPrompt: "That's not a number",
-        })
-      },
-      /**
-       * save the user's age
-       */
-      async captureAge(step) {
-        const user = await userAccessor.get(step.context, {})
-        if (step.result !== -1) {
-          await userAccessor.set(step.context, { ...user, age: step.result })
-          await step.context.sendActivity(
-            `I will remember that you are ${step.result} years old.`
-          )
-        } else {
-          await step.context.sendActivity(`No age given.`)
-        }
-        return step.endDialog()
-      },
-    }
-
-    return [
-      new TextPrompt(miniDialogs.name.name),
-      new ChoicePrompt(miniDialogs.confirmAgePrompt.name),
-      new NumberPrompt(miniDialogs.promptForAge.name, async prompt => {
-        if (
-          !prompt.recognized.succeeded ||
-          prompt.recognized.value === undefined
-        ) {
-          return false
-        }
-        if (prompt.recognized.value <= 0) {
-          await prompt.context.sendActivity(`Your age can't be less than zero.`)
-          return false
-        }
-        return true
-      }),
-      new WaterfallDialog(
-        Dialogs.WhoAreYou.name,
-        Object.values(miniDialogs).map(miniDialog =>
-          miniDialog.bind(miniDialogs)
-        )
-      ),
-    ]
-  },
-  /**
-   * Create a dialog that displays a user name after it has been collected.
-   */
-  HelloUser(userAccessor) {
-    const miniDialogs: UserMiniDialogs = {
-      /**
-       * display the saved information to the user
-       */
-      async displayProfile(step) {
-        const user = await userAccessor.get(step.context, {})
-        if (user.age) {
-          await step.context.sendActivity(
-            `Your name is ${user.name} and you are ${user.age} years old.`
-          )
-        } else {
-          await step.context.sendActivity(
-            `Your name is ${user.name} and you did not share your age.`
-          )
-        }
-        return step.endDialog()
-      },
-    }
-
-    return [
-      new WaterfallDialog(
-        Dialogs.HelloUser.name,
-        Object.values(miniDialogs).map(miniDialog =>
-          miniDialog.bind(miniDialogs)
-        )
-      ),
-    ]
-  },
-}
-
 export function MultiTurnBot(
   conversationState: ConversationState,
   userState: UserState
 ) {
   const dialogState = conversationState.createProperty(Properties.DIALOG_STATE)
+  // create accessor state that is available during the whole conversation
   const userAccessor: UserAccessor = userState.createProperty(
     Properties.USER_STATE
   )
+  // create a dialog set and register all the dialogs
   const dialogSet = new DialogSet(dialogState)
   for (const dialog of Dialogs.WhoAreYou(userAccessor)) {
     dialogSet.add(dialog)
@@ -178,6 +40,9 @@ export function MultiTurnBot(
     dialogSet.add(dialog)
   }
 
+  /**
+   * this is called after each conversation update, e.g. if the user sent us a message
+   */
   async function onTurn(turnContext: TurnContext) {
     switch (turnContext.activity.type) {
       case ActivityTypes.Message:
