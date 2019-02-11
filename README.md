@@ -1,4 +1,4 @@
-[![travis build](https://img.shields.io/travis/bitworkers-official/bot-builder-typescript-starter.svg?style=flat-square)](https://travis-ci.org/bitworkers-official/bot-builder-typescript-starter) ![renovate](https://badges.renovateapi.com/github/bitworkers-official/bot-builder-typescript-starter)
+[![travis build](https://img.shields.io/travis/bitworkers-official/bot-builder-typescript-starter.svg?style=flat-square)](https://travis-ci.com/bitworkers-official/bot-builder-typescript-starter) ![renovate](https://badges.renovateapi.com/github/bitworkers-official/bot-builder-typescript-starter)
 
 # Bot Builder Typescript Starter
 
