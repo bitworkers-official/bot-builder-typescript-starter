@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "strict": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "lib": ["esnext", "dom"],
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false
+  },
+  "include": ["src"]
+}

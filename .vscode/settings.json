@@ -1,0 +1,17 @@
+{
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    {
+      "language": "javascript",
+      "autoFix": true
+    },
+    {
+      "language": "typescript",
+      "autoFix": true
+    }
+  ],
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "prettier.eslintIntegration": true,
+  "javascript.format.enable": false
+}

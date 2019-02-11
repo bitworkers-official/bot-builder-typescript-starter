@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "launch",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon", // path of nodemon
+      "runtimeArgs": ["-r", "ts-node/register"], // attach ts-node debugger
+      "args": ["${workspaceRoot}/src/index.ts"], // the path of the file we want to debug
+      "restart": true,
+      "console": "integratedTerminal", // use integrated terminal instead of debug console
+      "internalConsoleOptions": "neverOpen" // use integrated terminal instead of debug console
+    }
+  ]
+}
