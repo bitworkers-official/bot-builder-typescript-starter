@@ -1,7 +1,7 @@
 {
-  "name": "botframework-multi-turn-bot-starter",
+  "name": "bot-builder-typescript-starter",
   "version": "1.0.0",
-  "description": "Starter template for a multi-turn bot with Microsoft's Botframework",
+  "description": "Starter template for a chatbot with Microsoft's Botbuilder SDK",
   "author": "Bitworkers",
   "license": "MIT",
   "main": "src/index.ts",
