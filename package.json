@@ -7,9 +7,10 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "npm run build && node dist/index.js",
-    "dev": "nodemon --watch src --exec ts-node src/index.ts",
+    "dev": "nodemon --exec ts-node src/index.ts",
     "build": "tsc",
-    "lint": "eslint src --ext .ts"
+    "lint": "eslint src --ext .ts",
+    "test": "ts-node test/index.ts"
   },
   "dependencies": {
     "botbuilder": "^4.2.1",
