@@ -12,7 +12,7 @@ import { Dialogs } from './dialogs'
 import { UserAccessor } from './types'
 
 /**
- * keys of permanent properties which are kept as long as the conversation goes
+ * keys of permanent state objects which are kept as long as the conversation goes
  */
 const Properties = {
   DIALOG_STATE: 'DIALOG_STATE' as 'DIALOG_STATE',
@@ -90,10 +90,8 @@ export function MultiTurnBot(
         break
     }
 
-    // Save changes to the user state.
+    // Save the state for the next turn
     await userState.saveChanges(turnContext)
-
-    // End this turn by saving changes to the conversation state.
     await conversationState.saveChanges(turnContext)
   }
 
