@@ -5,7 +5,7 @@ import {
   TurnContext,
   ConversationState,
 } from 'botbuilder'
-import { DialogSet } from 'botbuilder-dialogs'
+import { DialogSet, DialogContext } from 'botbuilder-dialogs'
 
 /**
  * A state accessor is just a proxy around a value with 'get' and 'set' methods, similar to localStorage
@@ -14,11 +14,30 @@ export interface StateAccessor<T> {
   /**
    * Get the value
    */
-  get: () => Promise<T>
+  readonly get: () => Promise<T>
   /**
    * Set the value
    */
-  set: (value: T) => Promise<void>
+  readonly set: (value: T) => Promise<void>
+}
+
+interface Adapter {
+  /**
+   * Add dialogs to the dialog set
+   */
+  readonly addDialogs: (dialogs: any[]) => void
+  /**
+   * Create a dialog context for starting dialogs
+   */
+  readonly createDialogContext: () => Promise<DialogContext>
+  /**
+   *  A proxy for the onTurn function provided by the user
+   */
+  onTurn: (turnContext: TurnContext) => void | Promise<void>
+  /**
+   * Use state which is saved after every turn
+   */
+  readonly useState: <T = any>(initialState: T) => StateAccessor<T>
 }
 
 export function createAdapter({
@@ -27,7 +46,7 @@ export function createAdapter({
 }: {
   storage?: MemoryStorage
   conversationState?: ConversationState
-} = {}) {
+} = {}): Adapter {
   /**
    * The current turn context, needed for getting and setting state
    */
@@ -47,10 +66,7 @@ export function createAdapter({
    */
   const _states: UserState[] = []
   return {
-    /**
-     * Add dialogs to the dialog set
-     */
-    addDialogs(dialogs: any) {
+    addDialogs(dialogs) {
       for (const dialog of dialogs) {
         _dialogSet.add(dialog)
       }
@@ -58,9 +74,6 @@ export function createAdapter({
     createDialogContext() {
       return _dialogSet.createContext(_turnContext)
     },
-    /**
-     *  A proxy for the onTurn function provided by the user
-     */
     get onTurn() {
       return async (turnContext: TurnContext) => {
         // assign the context so that it can be used for getting and setting state
@@ -75,13 +88,10 @@ export function createAdapter({
         )
       }
     },
-    set onTurn(onTurn: (turnContext: TurnContext) => void | Promise<void>) {
+    set onTurn(onTurn) {
       _onTurn = onTurn
     },
-    /**
-     * Use state which is saved after every turn
-     */
-    useState<T>(initialState: T): StateAccessor<T> {
+    useState(initialState) {
       const state = new UserState(storage)
       _states.push(state)
       const accessor = state.createProperty('state')
@@ -89,7 +99,7 @@ export function createAdapter({
         async get() {
           return accessor.get(_turnContext, initialState)
         },
-        async set(value: T) {
+        async set(value) {
           return accessor.set(_turnContext, value)
         },
       }

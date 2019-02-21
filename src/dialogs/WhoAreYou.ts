@@ -6,7 +6,7 @@ import {
 } from 'botbuilder-dialogs'
 // TODO fix eslint bug
 // eslint-disable-next-line import/named
-import { UserMiniDialogs, UserAccessor } from '../types'
+import { UserMiniDialogs, UserAccessor } from '../types/user'
 
 /**
  * A dialog that asks the user for his/her name and age

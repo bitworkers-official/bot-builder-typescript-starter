@@ -1,11 +1,11 @@
 import { TurnContext, ActivityTypes } from 'botbuilder'
 import { createAdapter } from '../bot/adapter'
 import { WhoAreYou } from './dialogs/WhoAreYou'
-import { User } from './types'
+import { User } from './types/user'
 
 export function MultiTurnBot() {
   const adapter = createAdapter()
-  const userState = adapter.useState<User>({ name: '1' })
+  const userState = adapter.useState<User>({})
   adapter.addDialogs(WhoAreYou(userState))
   adapter.onTurn = async (turnContext: TurnContext) => {
     if (turnContext.activity.type === ActivityTypes.Message) {
