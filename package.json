@@ -38,6 +38,7 @@
   },
   "lint-staged": {
     "*.ts": [
+      "jest --bail ---coverage --findRelatedTests",
       "eslint --fix",
       "prettier --write",
       "git add"
