@@ -1,21 +1,8 @@
-import {
-  ConversationState,
-  MemoryStorage,
-  TestAdapter,
-  UserState,
-} from 'botbuilder-core'
-import { MultiTurnBot } from '../src/bot'
-
-function createAdapter() {
-  const memoryStorage = new MemoryStorage()
-  const conversationState = new ConversationState(memoryStorage)
-  const userState = new UserState(memoryStorage)
-  const bot = MultiTurnBot(conversationState, userState)
-  return new TestAdapter(bot.onTurn)
-}
+import { createAdapter } from '../util'
+import { MultiTurnBot } from '../../src/bot'
 
 test('remembers when an age is given', async () => {
-  await createAdapter()
+  await createAdapter(MultiTurnBot)
     .send('Hello')
     .assertReply("What's is your name?")
     .send('Mr. Robot')
@@ -29,7 +16,7 @@ test('remembers when an age is given', async () => {
 })
 
 test('remembers when no age is given', async () => {
-  await createAdapter()
+  await createAdapter(MultiTurnBot)
     .send('Hello')
     .assertReply("What's is your name?")
     .send('Mr. Robot')

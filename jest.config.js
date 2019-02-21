@@ -3,7 +3,8 @@ module.exports = {
   transform: {
     '^.+\\.ts$': 'ts-jest',
   },
-  testRegex: '(/tests/.*|(\\.|/)(spec))\\.ts$',
+  testEnvironment: 'node',
+  testRegex: '/tests/.*\\.spec\\.ts$', // all files in the tests folder that end with .spec.ts
   globals: {
     global: {}, // botframework needs the global variable
   },

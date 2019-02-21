@@ -5,7 +5,7 @@
     "strict": true,
     "sourceMap": true,
     "outDir": "dist",
-    "lib": ["esnext", "dom"],
+    "lib": ["esnext"],
     "skipLibCheck": true,
     "noUnusedLocals": true,
     "noUnusedParameters": false

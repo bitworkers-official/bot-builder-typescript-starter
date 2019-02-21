@@ -23,8 +23,8 @@ export function WhoAreYou(userAccessor: UserAccessor) {
      * asks the user if he/she wants to give his/her age
      */
     async confirmAgePrompt(step) {
-      const user = await userAccessor.get(step.context, {})
-      await userAccessor.set(step.context, { ...user, name: step.result })
+      const user = await userAccessor.get()
+      await userAccessor.set({ ...user, name: step.result })
       return step.prompt(this.confirmAgePrompt.name, {
         prompt: 'Do you want to give your age?',
         choices: ['yes', 'no'],
@@ -46,9 +46,9 @@ export function WhoAreYou(userAccessor: UserAccessor) {
      * save the user's age
      */
     async captureAge(step) {
-      const user = await userAccessor.get(step.context, {})
+      const user = await userAccessor.get()
       if (step.result !== -1) {
-        await userAccessor.set(step.context, { ...user, age: step.result })
+        await userAccessor.set({ ...user, age: step.result })
         await step.context.sendActivity(
           `I will remember that you are ${step.result} years old.`
         )

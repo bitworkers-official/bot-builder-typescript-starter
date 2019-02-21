@@ -13,6 +13,12 @@ npm install &&
 npm run dev
 ```
 
+## Tests
+
+````bash
+npm run test:watch
+```
+
 ## Debugging (in Visual Studio Code)
 
 Press the green play icon in the debugging pane
@@ -20,3 +26,4 @@ Press the green play icon in the debugging pane
 ## Credits
 
 This Project is based on [https://github.com/Microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/05.multi-turn-prompt](https://github.com/Microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/05.multi-turn-prompt)
+````

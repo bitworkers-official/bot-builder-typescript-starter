@@ -10,7 +10,8 @@
     "dev": "nodemon --exec ts-node src/index.ts",
     "build": "tsc",
     "lint": "eslint src --ext .ts",
-    "test": "jest"
+    "test": "jest --coverage",
+      "test:watch": "jest --watch"
   },
   "dependencies": {
     "botbuilder": "^4.2.1",

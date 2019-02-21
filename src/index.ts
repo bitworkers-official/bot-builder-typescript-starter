@@ -3,7 +3,6 @@ import {
   BotFrameworkAdapter,
   ConversationState,
   MemoryStorage,
-  UserState,
 } from 'botbuilder'
 import { BotConfiguration } from 'botframework-config'
 import { config } from 'dotenv'
@@ -72,7 +71,6 @@ const memoryStorage = new MemoryStorage()
 
 // Create conversation state with in-memory storage provider.
 const conversationState = new ConversationState(memoryStorage)
-const userState = new UserState(memoryStorage)
 
 // Catch-all for errors.
 adapter.onTurnError = async (context, error) => {
@@ -85,7 +83,7 @@ adapter.onTurnError = async (context, error) => {
 }
 
 // Create the main dialog, which serves as the bot's main handler.
-const bot = MultiTurnBot(conversationState, userState)
+const bot = MultiTurnBot()
 
 // Listen for incoming requests.
 server.post('/api/messages', (req, res) => {
