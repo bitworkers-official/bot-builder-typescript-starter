@@ -8,7 +8,15 @@ import {
 import { DialogSet, DialogContext } from 'botbuilder-dialogs'
 
 /**
- * A state accessor is just a proxy around a value with 'get' and 'set' methods, similar to localStorage
+ * A state accessor is just a proxy around a value with the methods 'get' and 'set', similar to localStorage
+ * @example
+ * ```js
+ * // get the state
+ * const state = await stateAccessor.get()
+ *
+ * // set the state
+ * await stateAccessor.set({ x: 2 })
+ * ```
  */
 export interface StateAccessor<T> {
   /**
