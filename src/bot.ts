@@ -6,7 +6,7 @@ import {
   TurnContext,
 } from 'botbuilder'
 import { DialogSet } from 'botbuilder-dialogs'
-import { Dialogs } from './dialogs'
+import * as Dialogs from './dialogs'
 // TODO fix eslint bug
 // eslint-disable-next-line import/named
 import { UserAccessor } from './types'
