@@ -7,8 +7,6 @@ import {
 import { BotConfiguration } from 'botframework-config'
 import { config } from 'dotenv'
 import * as path from 'path'
-// TODO fix eslint bug
-// eslint-disable-next-line import/named
 import { MultiTurnBot } from './bot'
 
 config() // enable environment variables like process.env.FOO
