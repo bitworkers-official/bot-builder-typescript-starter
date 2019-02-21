@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-unused-expressions */
 import {
   ConversationState,
   MemoryStorage,
@@ -16,7 +14,7 @@ function createAdapter() {
   return new TestAdapter(bot.onTurn)
 }
 
-!(async () => {
+test('remembers when an age is given', async () => {
   await createAdapter()
     .send('Hello')
     .assertReply("What's is your name?")
@@ -28,9 +26,9 @@ function createAdapter() {
     .assertReply('I will remember that you are 42 years old.')
     .send('ok')
     .assertReply('Your name is Mr. Robot and you are 42 years old.')
-})()
+})
 
-!(async () => {
+test('remembers when no age is given', async () => {
   await createAdapter()
     .send('Hello')
     .assertReply("What's is your name?")
@@ -40,4 +38,4 @@ function createAdapter() {
     .assertReply('No age given.')
     .send('ok')
     .assertReply('Your name is Mr. Robot and you did not share your age.')
-})()
+})
