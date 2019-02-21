@@ -26,7 +26,3 @@ Press the green play icon in the debugging pane
 ## Credits
 
 This Project is based on [https://github.com/Microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/05.multi-turn-prompt](https://github.com/Microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/05.multi-turn-prompt)
-
-```
-
-```
