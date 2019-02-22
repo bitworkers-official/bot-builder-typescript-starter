@@ -20,7 +20,9 @@ npm install
 npm run dev
 ```
 
-Open the Botframework Emulator, click on `open bot` select the `multi-turn-prompt.bot`.
+## Emulator
+
+Open the [Botframework Emulator](https://github.com/Microsoft/BotFramework-Emulator), click on `open bot` select the `bot.bot` file.
 
 ## Debugging (in Visual Studio Code)
 

@@ -17,9 +17,7 @@ server.listen(process.env.port || process.env.PORT || 3978, () => {
   console.log(
     `\nGet Bot Framework Emulator: https://aka.ms/botframework-emulator.`
   )
-  console.log(
-    `\nTo talk to your bot, open multi-turn-prompt.bot file in the emulator.`
-  )
+  console.log(`\nTo talk to your bot, open bot.bot file in the emulator.`)
 })
 
 // .bot file path
