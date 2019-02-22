@@ -8,5 +8,6 @@ module.exports = {
   globals: {
     global: {}, // botframework needs the global variable
   },
+  moduleNameMapper: { '@/(.*)': '<rootDir>/src/$1' },
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
 }

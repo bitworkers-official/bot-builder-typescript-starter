@@ -1,7 +1,7 @@
 import { WaterfallDialog } from 'botbuilder-dialogs'
 // TODO fix eslint bug
 // eslint-disable-next-line import/named
-import { UserAccessor, UserMiniDialogs } from '../types/user'
+import { UserAccessor, UserMiniDialogs } from '@/types/user'
 
 /**
  * A dialog that displays a user name after it has been collected.

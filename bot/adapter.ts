@@ -29,7 +29,7 @@ export interface StateAccessor<T> {
   readonly set: (value: T) => Promise<void>
 }
 
-interface Adapter {
+export interface Adapter {
   /**
    * Add dialogs to the dialog set
    */
@@ -41,7 +41,7 @@ interface Adapter {
   /**
    *  A proxy for the onTurn function provided by the user
    */
-  onTurn: (turnContext: TurnContext) => void | Promise<void>
+  onTurn: (turnContext: TurnContext) => Promise<void>
   /**
    * Use state which is saved after every turn
    */
@@ -68,7 +68,7 @@ export function createAdapter({
   /**
    * The onTurn function provided by the user
    */
-  let _onTurn: (turnContext: TurnContext) => void | Promise<void>
+  let _onTurn: (turnContext: TurnContext) => Promise<void>
   /**
    * An Array of states that the user provided
    */

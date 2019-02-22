@@ -4,11 +4,16 @@
     "module": "commonjs",
     "strict": true,
     "sourceMap": true,
+    "moduleResolution": "node",
     "outDir": "dist",
     "lib": ["esnext"],
     "skipLibCheck": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": false
+    "noUnusedParameters": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"] // aliases for imports
+    }
   },
-  "include": ["src", "tests/index.spec.ts"]
+  "include": ["src", "tests"]
 }
