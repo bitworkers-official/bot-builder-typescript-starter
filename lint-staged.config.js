@@ -6,8 +6,8 @@ module.exports = {
     'jest --bail --findRelatedTests',
   ],
   '{!(package)*.json,*.code-snippets,.*rc}': [
-    'npx prettier --parser json',
+    'npx prettier --write --parser json',
     'git add',
   ],
-  'package.json': ['npx prettier --parser json', 'git add'],
+  'package.json': ['npx prettier --write --parser json', 'git add'],
 }
