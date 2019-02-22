@@ -8,6 +8,7 @@ module.exports = {
     repo: 'bitworkers-official/bot-builder-typescript-starter',
     editLinks: true,
     editLinkText: 'Edit this page on GitHub',
+    activeHeaderLinks: false,
     lastUpdated: 'Last Updated',
     sidebar: [
       ['/', 'Introduction'],
