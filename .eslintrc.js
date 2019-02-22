@@ -17,8 +17,6 @@ module.exports = {
     {
       files: '**/*.unit.ts',
       env: { jest: true },
-      plugins: ['jest'],
-      // extends: ['plugin:jest/recommended'],
     },
   ],
 }
