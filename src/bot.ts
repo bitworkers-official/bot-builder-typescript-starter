@@ -1,6 +1,6 @@
 import { TurnContext, ActivityTypes } from 'botbuilder'
 import { createAdapter } from '../bot/adapter'
-import { WhoAreYou } from './dialogs/WhoAreYou'
+import { WhoAreYou } from './dialogs/WhoAreYou/WhoAreYou'
 // eslint-disable-next-line import/named
 import { User } from './types/user'
 

@@ -11,7 +11,7 @@
     "new": "hygen new",
     "build": "tsc",
     "lint": "eslint src --ext .ts",
-    "test": "jest --coverage",
+      "test": "jest --coverage",
     "test:watch": "jest --watch",
     "docs": "vuepress dev"
   },

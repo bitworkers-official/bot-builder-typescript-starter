@@ -13,6 +13,16 @@ npm install &&
 npm run dev
 ```
 
+## Documentation
+
+This project includes a `docs` folder with more details on:
+
+1.  [Setup and development](docs/development.md)
+1.  [Architecture](docs/architecture.md)
+1.  [Tests and mocking the API](docs/tests.md)
+1.  [Linting and formatting](docs/linting.md)
+1.  [Building and deploying to production](docs/production.md)
+
 ## Credits
 
-This Project is based on [https://github.com/Microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/05.multi-turn-prompt](https://github.com/Microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/05.multi-turn-prompt)
+This Project is based on [BotBuilder Samples](https://github.com/Microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/05.multi-turn-prompt) and [Vue Enterprise Boilerplate](https://github.com/chrisvfritz/vue-enterprise-boilerplate)

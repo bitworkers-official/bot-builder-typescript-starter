@@ -13,4 +13,12 @@ module.exports = {
     ],
     'no-restricted-syntax': 'off',
   },
+  overrides: [
+    {
+      files: '**/*.unit.ts',
+      env: { jest: true },
+      plugins: ['jest'],
+      // extends: ['plugin:jest/recommended'],
+    },
+  ],
 }

@@ -1,5 +1,11 @@
 # Setup and development
 
+## Cloning the repository
+
+```bash
+git clone https://github.com/bitworkers-official/bot-builder-typescript-starter
+```
+
 ## Installation
 
 ```bash
@@ -7,12 +13,14 @@
 npm install
 ```
 
-## Dev server
+## Development
 
 ```bash
 # Launch the dev server
 npm run dev
 ```
+
+Open the Botframework Emulator, click on `open bot` select the `multi-turn-prompt.bot`.
 
 ## Debugging (in Visual Studio Code)
 

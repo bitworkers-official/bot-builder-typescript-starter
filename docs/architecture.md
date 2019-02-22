@@ -5,7 +5,7 @@
 - [`docs`](#docs)
 - [`src`](#src)
   - [`dialogs`](#src-dialogs)
-  - [`dialogs`](#src-types)
+  - [`types`](#src-types)
   - [`bot.ts`](#src-bot-ts)
   - [`server.ts`](#src-server-ts)
 - [`tests`](#tests)
