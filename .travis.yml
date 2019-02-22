@@ -4,7 +4,11 @@ node_js: lts/*
 
 cache: npm
 
+install:
+  - npm install -g codecov
+
 script:
   - npm run lint
   - npm test
   - npm run build
+  - codecov
