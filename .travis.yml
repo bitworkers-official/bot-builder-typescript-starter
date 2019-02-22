@@ -5,6 +5,7 @@ node_js: lts/*
 cache: npm
 
 install:
+  - npm ci
   - npm install -g codecov
 
 script:
