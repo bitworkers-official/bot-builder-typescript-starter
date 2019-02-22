@@ -1,5 +1,5 @@
 import { DialogTurnResult } from 'botbuilder-dialogs'
-import { StateAccessor } from '@/../bot/adapter'
+import { StateAccessor } from 'botbuilder-adapter'
 // TODO eslint bug
 // eslint-disable-next-line import/named
 import { Step, State } from '.'

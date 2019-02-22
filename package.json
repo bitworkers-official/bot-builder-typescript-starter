@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "botbuilder": "^4.2.1",
-    "botbuilder-adapter": "^1.0.3",
+    "botbuilder-adapter": "^1.0.4",
     "botbuilder-dialogs": "^4.2.1",
     "botframework-config": "^4.2.1",
     "dotenv": "^6.2.0",
