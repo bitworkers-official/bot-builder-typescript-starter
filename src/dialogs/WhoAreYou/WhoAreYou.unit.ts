@@ -1,9 +1,8 @@
-import { createAdapter } from '@/../bot/adapter'
 import { TurnContext, ActivityTypes } from 'botbuilder'
+import { createAdapter, createTestAdapter } from 'botbuilder-adapter'
 // eslint-disable-next-line import/named
 import { User } from '@/types/user'
 import { WhoAreYou } from './WhoAreYou'
-import { createTestAdapter } from '@/../bot/testAdapter'
 
 function createBot() {
   const adapter = createAdapter()

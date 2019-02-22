@@ -2,11 +2,10 @@
 to: src/dialogs/<%= h.inflection.titleize(name) %>/<%= h.inflection.titleize(name) %>.unit.ts
 ---
 import { TurnContext, ActivityTypes } from 'botbuilder'
+import { createAdapter, createTestAdapter } from 'botbuilder-adapter'
 // eslint-disable-next-line import/named
 import { User } from '@/types/user'
 import { <%= h.inflection.titleize(name) %> } from './<%= h.inflection.titleize(name) %>'
-import { createAdapter } from '@/../bot/adapter'
-import { createTestAdapter } from '@/../bot/testAdapter'
 
 function createBot(initialState: User) {
   const adapter = createAdapter()
