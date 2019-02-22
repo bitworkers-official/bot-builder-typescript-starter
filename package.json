@@ -17,7 +17,8 @@
     "lint": "eslint src --ext .ts",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "docs": "vuepress dev"
+    "docs": "vuepress dev",
+    "docs:build": "vuepress build docs"
   },
   "dependencies": {
     "botbuilder": "^4.2.1",
