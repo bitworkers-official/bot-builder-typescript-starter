@@ -25,7 +25,6 @@
     "botbuilder-dialogs": "^4.2.1",
     "botframework-config": "^4.2.1",
     "dotenv": "^6.2.0",
-    "path": "^0.12.7",
     "restify": "^8.0.0"
   },
   "devDependencies": {
