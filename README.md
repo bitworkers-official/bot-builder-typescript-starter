@@ -23,6 +23,8 @@ This project includes a `docs` folder with more details on:
 1.  [Linting and formatting](docs/linting.md)
 1.  [Building and deploying to production](docs/production.md)
 
+The docs are also available on [https://bitworkers-official.github.io/bot-builder-typescript-starter/](https://bitworkers-official.github.io/bot-builder-typescript-starter/)
+
 ## Credits
 
 This Project is based on [BotBuilder Samples](https://github.com/Microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/05.multi-turn-prompt) and [Vue Enterprise Boilerplate](https://github.com/chrisvfritz/vue-enterprise-boilerplate)
