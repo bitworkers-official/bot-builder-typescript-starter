@@ -1,7 +1,8 @@
 module.exports = {
-  title: 'Docs',
+  title: 'Bot Builder Docs',
+  description: 'Documentation for the Bot Builder TypeScript starter template',
   base: '/bot-builder-typescript-starter/',
-  evergreen: true,
+  evergreen: true, // only build for modern browsers
   themeConfig: {
     sidebar: [
       ['/', 'Introduction'],
