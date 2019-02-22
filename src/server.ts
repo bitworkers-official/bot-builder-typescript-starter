@@ -23,7 +23,7 @@ server.listen(process.env.port || process.env.PORT || 3978, () => {
 })
 
 // .bot file path
-const BOT_FILE = path.join(__dirname, '..', process.env.botFilePath || '')
+const BOT_FILE = path.join(__dirname, '..', process.env.botFilePath as string)
 
 // Read the configuration from a .bot file.
 // This includes information about the bot's endpoints and Bot Framework configuration.

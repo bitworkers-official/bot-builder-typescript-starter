@@ -5,12 +5,16 @@
   "author": "Bitworkers",
   "license": "MIT",
   "main": "src/server.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitworkers-official/bot-builder-typescript-starter"
+  },
   "scripts": {
     "start": "npm run build && node dist/server.js",
     "dev": "nodemon --watch src --ext ts --exec ts-node -r tsconfig-paths/register src/server.ts",
     "new": "hygen new",
     "build": "tsc",
-      "lint": "eslint src --ext .ts",
+    "lint": "eslint src --ext .ts",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "docs": "vuepress dev"
