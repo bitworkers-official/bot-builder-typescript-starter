@@ -1,5 +1,6 @@
 module.exports = {
   title: 'Docs',
+  base: '/bot-builder-typescript-starter/',
   themeConfig: {
     sidebar: [
       ['/', 'Introduction'],
