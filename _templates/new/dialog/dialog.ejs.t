@@ -1,5 +1,5 @@
 ---
-to: src/dialogs/<%= h.inflection.dasherize(name) %>.ts
+to: src/dialogs/<%= h.inflection.titleize(name) %>/<%= h.inflection.titleize(name) %>.ts
 ---
 import { WaterfallDialog } from 'botbuilder-dialogs'
 // TODO fix eslint bug
