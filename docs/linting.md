@@ -1,6 +1,6 @@
 # Linting & formatting
 
-This project uses ESLint, and Prettier to catch errors and fix code style.
+This project uses ESLint and Prettier to catch errors and fix code style.
 
 ## Terminal
 
@@ -11,4 +11,4 @@ npm run lint
 
 ## Pre-commit
 
-Staged files are automatically linted and tested before each commit. See `lint-staged.config.js` to update.
+Staged files are automatically linted and tested before each commit. See `package.json` for details.
