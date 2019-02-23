@@ -2,8 +2,6 @@
 to: src/dialogs/<%= h.inflection.titleize(name) %>/<%= h.inflection.titleize(name) %>.ts
 ---
 import { WaterfallDialog } from 'botbuilder-dialogs'
-// TODO fix eslint bug
-// eslint-disable-next-line import/named
 import { UserAccessor, UserMiniDialogs } from '@/types/user'
 
 export function <%= h.inflection.titleize(name) %>(userAccessor: UserAccessor) {

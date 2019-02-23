@@ -3,7 +3,6 @@ to: src/dialogs/<%= h.inflection.titleize(name) %>/<%= h.inflection.titleize(nam
 ---
 import { TurnContext, ActivityTypes } from 'botbuilder'
 import { createAdapter, createTestAdapter } from 'botbuilder-adapter'
-// eslint-disable-next-line import/named
 import { User } from '@/types/user'
 import { <%= h.inflection.titleize(name) %> } from './<%= h.inflection.titleize(name) %>'
 

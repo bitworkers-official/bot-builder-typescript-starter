@@ -1,6 +1,4 @@
 import { WaterfallDialog } from 'botbuilder-dialogs'
-// TODO fix eslint bug
-// eslint-disable-next-line import/named
 import { UserAccessor, UserMiniDialogs } from '@/types/user'
 
 /**
