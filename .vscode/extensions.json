@@ -13,6 +13,9 @@
     "VisualStudioExptTeam.vscodeintellicode",
     // Npm Support
     // https://github.com/Microsoft/vscode-npm-scripts
-    "eg2.vscode-npm-script"
+    "eg2.vscode-npm-script",
+    // Jest testing
+    // https://github.com/jest-community/vscode-jest
+    "Orta.vscode-jest"
   ]
 }
