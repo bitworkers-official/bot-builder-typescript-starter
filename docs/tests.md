@@ -6,7 +6,7 @@
  # Run all tests
 npm run test
 
-# Run all the test every time a file changes
+# Run all the tests every time a file changes
 npm run test:watch
 ```
 
