@@ -1,7 +1,7 @@
 import { TurnContext, ActivityTypes } from 'botbuilder'
 import { createAdapter } from 'botbuilder-adapter'
-import { User } from './types/user'
-import * as Dialogs from './dialogs'
+import { User } from '@/types/user'
+import * as Dialogs from '@/dialogs'
 
 export function MultiTurnBot() {
   const adapter = createAdapter()

@@ -7,7 +7,7 @@ import {
 import { BotConfiguration } from 'botframework-config'
 import { config } from 'dotenv'
 import * as path from 'path'
-import { MultiTurnBot } from './bot'
+import { MultiTurnBot } from '@/bot'
 
 config() // enable environment variables like process.env.FOO
 
