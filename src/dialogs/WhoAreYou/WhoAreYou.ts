@@ -15,7 +15,7 @@ export function WhoAreYou(userAccessor: UserAccessor) {
      * prompts the user for their name
      */
     async name(step) {
-      return step.prompt(this.name.name, `What's is your name?`)
+      return step.prompt(miniDialogs.name.name, `What's is your name?`)
     },
     /**
      * asks the user if he/she wants to give his/her age
@@ -23,7 +23,7 @@ export function WhoAreYou(userAccessor: UserAccessor) {
     async confirmAgePrompt(step) {
       const user = await userAccessor.get()
       await userAccessor.set({ ...user, name: step.result })
-      return step.prompt(this.confirmAgePrompt.name, {
+      return step.prompt(miniDialogs.confirmAgePrompt.name, {
         prompt: 'Do you want to give your age?',
         choices: ['yes', 'no'],
       })
@@ -35,7 +35,7 @@ export function WhoAreYou(userAccessor: UserAccessor) {
       if (!step.result || step.result.value === 'no') {
         return step.next(-1)
       }
-      return step.prompt(this.promptForAge.name, {
+      return step.prompt(miniDialogs.promptForAge.name, {
         prompt: `What is your age?`,
         retryPrompt: "That's not a number",
       })
@@ -73,9 +73,6 @@ export function WhoAreYou(userAccessor: UserAccessor) {
       }
       return true
     }),
-    new WaterfallDialog(
-      WhoAreYou.name,
-      Object.values(miniDialogs).map(miniDialog => miniDialog.bind(miniDialogs))
-    ),
+    new WaterfallDialog(WhoAreYou.name, Object.values(miniDialogs)),
   ]
 }

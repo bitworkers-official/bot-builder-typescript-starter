@@ -24,10 +24,5 @@ export function HelloUser(userAccessor: UserAccessor) {
     },
   }
 
-  return [
-    new WaterfallDialog(
-      HelloUser.name,
-      Object.values(miniDialogs).map(miniDialog => miniDialog.bind(miniDialogs))
-    ),
-  ]
+  return [new WaterfallDialog(HelloUser.name, Object.values(miniDialogs))]
 }
