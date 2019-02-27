@@ -6,7 +6,12 @@
       "request": "launch",
       "name": "launch",
       "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon", // path of nodemon
-      "runtimeArgs": ["-r", "ts-node/register"], // attach ts-node debugger
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register",
+        "-r",
+        "tsconfig-paths/register"
+      ], // attach ts-node debugger
       "args": ["${workspaceRoot}/src/server.ts"], // the path of the file we want to debug
       "restart": true,
       "console": "integratedTerminal", // use integrated terminal instead of debug console
