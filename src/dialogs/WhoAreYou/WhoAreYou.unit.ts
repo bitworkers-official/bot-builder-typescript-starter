@@ -9,10 +9,10 @@ function createBot() {
   adapter.addDialogs(WhoAreYou(userState))
   adapter.onTurn = async (turnContext: TurnContext) => {
     if (turnContext.activity.type === ActivityTypes.Message) {
-      const dialogContext = await adapter.createDialogContext()
+      const dialogContext = await adapter.createDialogContext(turnContext)
       await dialogContext.continueDialog()
       if (!turnContext.responded) {
-        const user = await userState.get()
+        const user = await userState.get(turnContext)
         if (!user.name) {
           await dialogContext.beginDialog(WhoAreYou.name)
         }

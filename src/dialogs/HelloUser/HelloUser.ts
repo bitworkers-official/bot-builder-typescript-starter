@@ -10,7 +10,7 @@ export function HelloUser(userAccessor: UserAccessor) {
      * display the saved information to the user
      */
     async displayProfile(step) {
-      const user = await userAccessor.get()
+      const user = await userAccessor.get(step.context)
       if (user.age) {
         await step.context.sendActivity(
           `Your name is ${user.name} and you are ${user.age} years old.`
